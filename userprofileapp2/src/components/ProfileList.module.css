@@ -1,0 +1,23 @@
+.container{
+    width: 100%;
+    background-color: var(--color-primary);
+    height: 100vh;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+}
+.delete-all {
+    background-color: var(--color-orange);
+    color: #fff;
+    outline: none;
+    border: 1px solid var(--color-orange);
+    padding: 2px 4px;
+    text-align: left;
+    padding:--px2
+}
