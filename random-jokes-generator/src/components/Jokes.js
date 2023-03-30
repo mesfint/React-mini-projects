@@ -1,5 +1,6 @@
 import React,{useEffect, useState} from 'react'
 import spinner from '../assets/spinner1.jpg'
+import axios from 'axios'
 
 const Jokes = () => {
     const[randJoke, setRandJoke] = useState({})
@@ -7,25 +8,48 @@ const Jokes = () => {
 
  const url = "https://api.chucknorris.io/jokes/random"
 
- const fetchRandonJokes = ()=>{
+
+ const fetchRandonJokes =async ()=>{
+    //setLoading(true)
+//    fetch(url)
+//    .then(response=>{
+//      return response.json()
+
+//    })
+//    .then((data)=>{
+//      setRandJoke(data)
+//         setLoading(false)
+//      console.log(data)
+
+//    })
+    // setLoading(true)
+    // axios.get(url)
+    //   .then((response) => {
+    //     setRandJoke(response.data)
+    //     setLoading(false)
+    //     console.log(response.data)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error)
+    //   })
+
     setLoading(true)
-   fetch(url)
-   .then(response=>{
-     return response.json()
+    try {
+      const response = await axios.get(url)
+      setRandJoke(response.data)
+      setLoading(false)
+      console.log(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-   })
-   .then((data)=>{
-     setRandJoke(data)
-        setLoading(false)
-     console.log(data)
-
-   })
-  
- }
-
- useEffect(()=>{
-   fetchRandonJokes()
- },[])
+  useEffect(() => {
+    fetchRandonJokes()
+    return ()=>{
+      console.log('clean up')
+    }
+  }, [])
 
 
   return (
