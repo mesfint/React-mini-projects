@@ -25,7 +25,6 @@ const GitUserList = () => {
                 setUsers(data)
                 setLoading(false);
     
-            
         } catch (error) {
             console.log(error.message)
             setError(true)
