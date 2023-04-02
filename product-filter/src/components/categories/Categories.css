@@ -1,0 +1,10 @@
+.btn {
+    background-color: var(--foreground); 
+    color: var(--background);
+    border:1px solid var(--background);
+}
+
+.btn:hover {
+    background-color: orangered; 
+
+}
