@@ -7,6 +7,7 @@
     max-width: 25rem;   
     animation: slide-up 0.5s ease 1;
     transition: all 0.3s ;
+    cursor: pointer;
 
 }
 @keyframes slide-up {
