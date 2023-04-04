@@ -1,0 +1,53 @@
+    section.main{
+        background: #eee;
+
+    }
+    .toggle-btn{
+        width: 45px;
+        height: 23px;
+        background-color: #ccc;
+        color: var(--color-orange);
+        display: flex;
+        border-radius: 50px;
+        align-items: center;
+        justify-content: space-between;
+        padding: 5px;
+        position: relative;
+        transform: scale(1.5);
+        cursor: pointer;
+    }
+    .toggled{
+        background-color:  rgba(95, 201, 52, 1);
+            
+          
+    }
+    .ball{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: #fff;
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        transition: all 0.3s linear;
+    }
+    .move{
+        transform: translateX(22px);
+    }
+
+    .sub-plans{
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        /* align-items=> makes the items to stretch and have same hight and width
+        even if they don't have same content */
+        align-items: stretch;
+    }
+    @media screen and (max-width: 600px){
+        .sub-plans{
+            flex-direction: column;
+        }
+    }
+        
+    
