@@ -57,6 +57,24 @@ const TaskManager = () => {
         setDate(thisTask.date)
     }
 
+    const deleteTask=(id)=>{
+        if(window.confirm("Are you sure you want to delete this task?")){
+        const updatedTasks = tasks.filter((task)=>task.id !== id);
+        setTasks(updatedTasks)
+    }
+    };
+
+    const completeTask=(id)=>{
+        const completedTasks = tasks.map((task)=>{
+            if (task.id === id){
+                return {...task,complete:true}
+            }
+                
+            return task
+        })
+
+    }
+
 useEffect(()=>{
     inputRef.current.focus()
 },[])
@@ -99,7 +117,7 @@ useEffect(()=>{
             <h2 className='--text-light'>Task List</h2>
             <hr style={{background: "#fff"}} />
             {tasks.length === 0 ? (<p className='--text-light'>No Task Found!!!</p>) : tasks.map((task)=>(
-            <Task  key={task.id} {...task} editTask={editTask}/>
+            <Task  key={task.id} {...task} editTask={editTask} onDeleteTask={deleteTask} onComplete={completeTask}/>
 
             ))}
             

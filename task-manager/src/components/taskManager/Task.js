@@ -3,7 +3,7 @@ import  './TaskManager.css'
 import {FaEdit,FaCheckDouble,FaTrashAlt} from 'react-icons/fa'
 
 
-const Task = ({id,name,date,complete,editTask}) => {
+const Task = ({id,name,date,complete,editTask,onDeleteTask,onComplete}) => {
   return (
     <div key={id} className={ complete ? "task complete" : "task"}>
          <span>
@@ -12,8 +12,8 @@ const Task = ({id,name,date,complete,editTask}) => {
          </span>
          <span>
                 <button onClick={()=>editTask(id)}><FaEdit  color="green"  /></button>
-                <button ><FaTrashAlt color="red" /></button>
-                <button ><FaCheckDouble color="purple" /></button>
+                <button onClick={()=>onDeleteTask(id)} ><FaTrashAlt color="red" /></button>
+                <button onClick={()=>onComplete(id)}><FaCheckDouble color="purple" /></button>
          </span>
 
     </div>
