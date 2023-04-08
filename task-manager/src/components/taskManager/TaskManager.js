@@ -1,11 +1,12 @@
 import React,{useState,useRef,useEffect} from 'react'
 import  './TaskManager.css'
 import Task from './Task'
+import useLocalStorage from "use-local-storage";
 
 const TaskManager = () => {
     const [name,setName] = useState("")
     const [date,setDate] = useState("")
-    const [tasks,setTasks] = useState([])
+    const [tasks,setTasks] = useLocalStorage("tasks",[])
 
     const [taskID,setTaskID] = useState(null)
     const [isEditing,setIsEditing] = useState(false)
@@ -72,6 +73,7 @@ const TaskManager = () => {
                 
             return task
         })
+        setTasks(completedTasks)
 
     }
 
