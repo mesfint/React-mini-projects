@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import React,{useContext, useEffect, useState} from 'react'
 import Categories from '../categories/Categories'
 import Search from '../search/Search'
 import Product from './Product'
@@ -6,12 +6,15 @@ import "./ProductList.css"
 import {products as data} from "../../products-data"
 import Footer from '../Footer/Footer'
 import {FaMoon,FaSun} from 'react-icons/fa'
+import ThemeContext from '../../context/themeContext'
 
 //will return a set of unique categories
 const allCategories = ['all', ...new Set(data.map((item) => item.category))];
 
 
-const ProductList = ({myTheme, onToggleTheme,onSwitch}) => {
+const ProductList = () => {
+    const {theme ,handleToggleTheme,switchBtn} = useContext(ThemeContext)
+
     const[products,setProducts] = useState(data)
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredProducts, setFilteredProducts] = useState([]);
@@ -45,15 +48,15 @@ const ProductList = ({myTheme, onToggleTheme,onSwitch}) => {
 
   return (
     <div  className="product-list">
-        <header  data-theme={myTheme}>
-            <div className="container ">
+        <header  data-theme={theme}>
+          
             <div className="head-section">
                 <h1 className='--text-center'> Product Filter</h1>
-                <div onClick={onToggleTheme}>
+                <div onClick={handleToggleTheme}>
                    <span className='toogle-btn'>
                     <FaMoon   size={18}/>
                     <FaSun   size={18}/>
-                    <div className= {onSwitch ? "ball move" : "ball"} ></div>
+                    <div className= {switchBtn ? "ball move" : "ball"} ></div>
                    </span>
                 </div>
 
@@ -65,13 +68,13 @@ const ProductList = ({myTheme, onToggleTheme,onSwitch}) => {
 
             </div>
                            
-            </div>
+        
         </header>
-        <div  data-theme={myTheme}>
+        <div  data-theme={theme}>
         <div className="product-container " >
             <div className="products container --grid-25 --py2">
            {filteredProducts.length === 0 ? (<h3>No Product found!!!</h3>)  :   (filteredProducts.map((product)=>{
-                return <Product key={product.id} {...product} myTheme={myTheme}/>
+                return <Product key={product.id} {...product} />
            }))}                  
                 
             </div>          
@@ -80,7 +83,7 @@ const ProductList = ({myTheme, onToggleTheme,onSwitch}) => {
 
         </div>
 
-        <Footer myTheme={myTheme} />
+        <Footer />
     </div>
   )
 }
