@@ -45,7 +45,10 @@ html {
 
 body {
   font-family: var(--font-family);
+  min-height: 100%;
+  position: relative;
 }
+
 
 section {
   width: 100%;
@@ -109,7 +112,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
   row-gap: 1rem;
-  column-gap: 1rem;
+  column-gap: 1.5rem;
 }
 
 /* Center All */

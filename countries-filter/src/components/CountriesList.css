@@ -1,7 +1,0 @@
-.header-container{
-    background: var(--foreground);
-}
-.countries-container{
-    min-height: 90vh;
-    background: var(--background);
-}
