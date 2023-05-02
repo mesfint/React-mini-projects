@@ -9,6 +9,11 @@ const AuthContainer = () => {
     isRegister: false,
     isReset: false
   })
+  const [showPassword, setShowPassword] = React.useState(false)
+
+  const handleShowPassword = () => {
+    setShowPassword(!showPassword)
+  }
 
   // const [isLogin, setIsLogin] = useState(true);
   // const [isRegister, setIsRegister] = useState(false);
@@ -48,8 +53,8 @@ const AuthContainer = () => {
   return (
     <section className='--flex-center --100vh '>
     <div className="container box">
-    {auth.isLogin &&  <Login onRegister={handleRegister} onReset={handleReset} />} 
-    {auth.isRegister &&  <Register onLogin={handleLogin} /> } 
+    {auth.isLogin &&  <Login onRegister={handleRegister} onReset={handleReset} onShowPassword={showPassword} onTogglePassword={handleShowPassword} />} 
+    {auth.isRegister &&  <Register onLogin={handleLogin}  onShowPassword={showPassword} onTogglePassword={handleShowPassword}/> } 
     {auth.isReset && <Reset onReset={handleReset} />} 
 
     </div>

@@ -16,20 +16,6 @@
 
   --color-primary: #007bff;
   --color-success: #28a745;
-
-  --background:var(--color-white);
-  --foreground:var(--color-dark);
-  
-  --btn-background :var(--color-white);
-  --btn-foreground :var(--color-dark);
-}
-/* dark mode color scheme */
-[data-theme="dark"] {
-  --background:var(--color-dark);
-  --foreground:var(--color-white);
-
-  --btn-background :var(--color-dark);
-  --btn-foreground :var(--color-white);
 }
 
 * {
@@ -88,6 +74,11 @@ section {
 
 .--flex-dir-column {
   display: flex;
+}
+
+.--align-center {
+  display: flex;
+  align-items: center;
 }
 
 .--100vh {
@@ -391,6 +382,7 @@ p {
 .--width-100 {
   width: 100%;
 }
+
 .--width-500px {
   width: 500px;
 }
@@ -437,9 +429,4 @@ a {
 a:hover {
   color: var(--color-dark);
   font-size: 1.5rem;
-}
-
-.--align-center {
-  display: flex;
-  align-items: center;
 }

@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Footer.css'
-const Footer = ({myTheme}) => {
+import ThemeContext from '../../context/themeContext'
+
+
+const Footer = () => {
+  const{theme} = useContext(ThemeContext)
   return (
-    <footer className='--flex-center'  data-theme={myTheme}>
+    <footer className='--flex-center'  data-theme={theme}>
       <p>Copyright &copy; 2023</p>
     </footer>
   )

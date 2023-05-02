@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from '../UI/Card'
 import "./Product.css"
+import ThemeContext from '../../context/themeContext'
 // import productImage from "../..//images/7.png"
-const Product = ({title,img,price,myTheme}) => {
+const Product = () => {
+  const {theme,title,img,price} = useContext(ThemeContext)
   return (
-    <div  data-theme={myTheme}>
+    <div  data-theme={theme}>
    
         <div className="product --card " >
                   

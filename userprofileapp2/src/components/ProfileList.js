@@ -33,7 +33,7 @@ const ProfileList = () => {
          />
     ))}
 
-    <button className={classes["delete-all"] } onClick={()=>deleteAll()}>Clear All</button>
+    <button className=" --btn --btn-danger" onClick={()=>deleteAll()}>Clear All</button>
     </div>
       
     </div>

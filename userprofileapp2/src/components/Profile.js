@@ -18,7 +18,7 @@ const Profile = ({name,job,img,deleteProfile,id}) => {
         <p>Job: {job}</p>
 
         </div>
-        <FiTrash2 size={25} color={"#fff"}  className={classes["delete-icon"]} onClick={()=>deleteProfile(id)}/>
+        <FiTrash2 size={25} color={"#fff"}  className="delete-icon " onClick={()=>deleteProfile(id)}/>
        
       
 
